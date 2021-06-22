@@ -14,10 +14,15 @@ const add = async ({ username, password, role }: CreateUserOptions): Promise<Use
       throw new Error(`User ${username} already exists`);
     }
 
+    const newUser = (await Users.create({
+      username,
+      password,
+      role,
+    })) as User;
 
     await session.commitTransaction();
     await session.endSession();
-    return null;
+    return newUser;
   } catch (error) {
     await session.abortTransaction();
     await session.endSession();
