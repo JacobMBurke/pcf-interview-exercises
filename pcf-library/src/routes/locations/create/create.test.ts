@@ -22,11 +22,9 @@ describe('Locations :: Create', async () => {
     const name = 'Test location exists';
 
     await create({ name });
-    
-    const errMsg = `Failed to create config string: The location ${name} already exists`;
-    const found = await Locations.findOne({name})
-    console.log(found)
 
+    const errMsg = `Failed to create config string: The location ${name} already exists`;
+    
     await expect(create({ name })).to.be.rejectedWith(errMsg);
   });
 });
