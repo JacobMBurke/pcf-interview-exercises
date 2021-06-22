@@ -6,7 +6,14 @@ const add = async ({ username, password, role }: CreateUserOptions): Promise<Use
   const session = await mongoose.startSession();
   await session.startTransaction();
   try {
-    // TODO: Create a user
+    
+    // confirm user does not already exist in the DB
+    const user = (await Users.findOne({ username }).session(session)) as User;
+
+    if (user) {
+      throw new Error(`User ${username} already exists`);
+    }
+
 
     await session.commitTransaction();
     await session.endSession();
