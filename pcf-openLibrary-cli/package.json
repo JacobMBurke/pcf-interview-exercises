@@ -1,0 +1,18 @@
+{
+  "name": "pcf-openlibrary-cli",
+  "version": "1.0.0",
+  "description": "Welcome to the PCF Open Library CLI exercise! This exercise is to write a small console application. There is no need to\r demonstrate web server behaviour, db connectivity etc here. Feel free to use either JavaScript or TypeScript,\r with appropriate entries in the package.json.",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jacob Burke",
+  "license": "ISC",
+  "dependencies": {},
+  "devDependencies": {
+    "@types/node": "^15.12.4",
+    "ts-node": "^10.0.0",
+    "typescript": "^4.3.4"
+  }
+}
