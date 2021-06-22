@@ -25,9 +25,9 @@ export const search = async (author: string) => {
             return arr
         }, [])
 
-        console.log(bookDetails)
-        console.log(authors)
+        return { books: bookDetails, authors: authors }
     } catch (e) {
         console.error(`An error occured during processing: ${e.message}`)
+        return { books: [], authors: [] }
     }
 }

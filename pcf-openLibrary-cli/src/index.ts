@@ -3,4 +3,8 @@ import { search } from './search'
 
 const author = process.argv[2]
 
-search(author)
+search(author).then(res => {
+    
+    console.log(res.books)
+    console.log(res.authors)
+})

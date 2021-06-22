@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "tsc",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha --sort --timeout 30000"
   },
   "author": "Jacob Burke",
   "license": "ISC",
@@ -13,6 +13,8 @@
     "node-fetch": "^2.6.1"
   },
   "devDependencies": {
+    "@types/chai": "^4.2.19",
+    "@types/mocha": "^8.2.2",
     "@types/node": "^15.12.4",
     "@types/node-fetch": "^2.5.10",
     "chai": "^4.3.4",
