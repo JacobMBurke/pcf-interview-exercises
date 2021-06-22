@@ -16,13 +16,19 @@ describe('Users :: Authenticate', async () => {
   });
 
   it('Authenticate succeeds', async () => {
-    // TODO: Write a suitable test
-    throw new Error('Not implemented');
+    const result = await authenticate({ username: 'super', password: 'super' });
+
+    expect(result).to.have.property('success');
+    expect(result).to.have.property('role');
+    expect(result.success).to.eql(true)
+    expect(result.role).to.eql('Super')
   });
 
   it('Fails if the user doesnt exist', async () => {
-    // TODO: Write a suitable test
-    throw new Error('Not implemented');
+    const unknownUsername = 'unknown'
+    const errMsg = `User ${unknownUsername} does not exist`;
+
+    await expect(authenticate({ username: unknownUsername, password: 'unknownpassword' })).to.be.rejectedWith(errMsg);
   });
 
   it('Fails if the password is wrong', async () => {
