@@ -19,7 +19,14 @@ describe('Locations :: Create', async () => {
   });
 
   it('Fails if the name already exists', async () => {
-    // TODO: Write a suitable test
-    throw new Error('Not implemented');
+    const name = 'Test location exists';
+
+    await create({ name });
+    
+    const errMsg = `Failed to create config string: The location ${name} already exists`;
+    const found = await Locations.findOne({name})
+    console.log(found)
+
+    await expect(create({ name })).to.be.rejectedWith(errMsg);
   });
 });
